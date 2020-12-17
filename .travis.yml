@@ -4,7 +4,8 @@ branches:
 language: node_js
 node_js:
 - '15.3'
-sudo: required
+sudo:
+  required
 cache:
   npm: true
 before-script:
