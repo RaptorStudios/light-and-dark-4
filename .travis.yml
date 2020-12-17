@@ -4,8 +4,7 @@ branches:
 language: node_js
 node_js:
 - '15.3'
-sudo:
-  required
+sudo: required
 cache:
   npm: true
 before-script:
@@ -18,11 +17,11 @@ script:
 - grunt --gruntfile Gruntfile.cjs l4w-build-pipeline
 after_success:
 - bash post_build.sh
+# Encrypted GitHub access token for Travis-CI.com
+# Can be generated with this command: travis encrypt --pro GH_TOKEN=<token>
+# Will be used by Travis to run post_build.sh, which push build output to branch "deploy" 
 env:
   global:
-    # Encrypted GitHub access token for Travis-CI.com
-    # Can be generated with this command: travis encrypt --pro GH_TOKEN=<token>
-    # Will be used by Travis to run post_build.sh, which push build output to branch "deploy" 
-    secure: VF1KXE5BOny/RQ+3SUJFJpnQmCeGIdawVbqFozBVlNQs09Hl9RZ/HThj5fn5QowMEmMIIDTG4u8aGsJge8qNeqKccAxFTy8QLqOAPSBJ01Dq2fRPQaMLA+5z0wcGCRZiSVHYV58SSJm3qqQzGjymJmBcKvItebuyTugnPlCLD78ZYFp10TNyLQUz14wi3l2Rota3rDdjiqKH7TcQYbmXXFupEJcy/N4KiaMG34Ypk720ZVX6xP97WK8QdXt8aN8VxrRSmyePDoerpHlSqgSKWpZbT39/fwQHue6zyX+1p18XgSPpdQVqwgCKrdPPY2vcy5st1BuoUlU73cMEJ2EZ9SCh+YR/ElF+tljkrvS6WLZY0riLBzIA+Z1lMBezaRmFUWQMx9s3h19EAwvczQsA0rGuXJCBv/+byQYPnSVn8WEI4MoFsiEbj7P++OR+wkmnwWGIWCE0FIR5iRnGSFtnEyh/S1h7nO5ET6C6n5SMIYFT29MU7Pg/bmMvhVpC+fx6N52LrSvifIN9EgQXU5NWGQku9IjK2d9YZ5k0a692JlFbhFGrZEfVRADJKeUNokbxM0JE9JLUHN3J6gQ4ta1xCFwiOOkOgk9UuH1HouOw5m6dqlebsL+PSC/2j+UdqCmM8GnXOmoXV5Tfk1XupLZD+7qDq9WfEC/U38v5leqiRu0= 
-  notifications:
+  - secure: hPyFpViVyipVOz5UmgCA5A2bsLJC5dVOuGf5gxk59OcrZ3JPotKaAdpCqnL80zUVySQulNpuEcVbRxbzhWA5gmdcZDSkUeJivmU7LkMbCzmCSNBDp5ku8oRTBRQk0DyEq9maRSDEUQijoh0RHsl4RUJd6kGQCnzHpGlViW/fthzqvJxx0Rqp7c7XQTG6wUEeTop+HCQ5nH5fMWiFhmNTc/PZJcAfWDfZIy3U1ycOkkXUMyWHxCF18Ulx3Ut/3BKVhyR04jBJBHglKCqCv8Pr6bO40fD6oPwBvpcTWuuhpPtQA0EI1UKU0EmgaNHb+q/vmY2B1Qug0xjO8xp30x8FMmPephvCIcQnNuODdUoEUQb9K+ZbpCO2B9a6EyOs8jv50wpuLLPiHxQuwUT4Ezq5WapUPytP0EDxqK7UqRcypzeNf6BECt2u3UPeFfLWxiJtSj+8pFX+ShY6BLv5d5MlY24fyb46l8nuJvRlXjLtagytLQfE2s+XVrJejblN86x+KBYev/O4Yf/AOYgJV2u3kV0RzD0MSEICokVhubCSqIY0OOEc2Lxtm+GgMCJDXoPz6oArWyxxpw5E22SxvHH4yFkCl/stP/q5Edst5W6zoT8+glU0jjc+LioD0J6vPXPEKj4gvWrfSKZo5V0ODY7g2qXMw8XOIn9K61PzfGFdvTY=
+notifications: 
   email: false
